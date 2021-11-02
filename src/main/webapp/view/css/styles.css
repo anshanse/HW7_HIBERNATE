@@ -1,0 +1,193 @@
+:root {
+  --accent-color: rgba(33, 150, 243, 1);
+  --title-color: rgb(243, 239, 239);
+  --text-color: rgba(80, 80, 80, 1);
+  --main-font: "Roboto", sans-serif;
+  --secondary-font: "Raleway", sans-serif;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header {
+  font-family: var(--main-font);
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  font-size: 24px;
+  color: var(--text-color);
+}
+a {
+	text-decoration: none;
+}
+.link {
+  color: var(--title-color);
+}
+.active {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.list {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  justify-content: left;
+}
+.results{
+	margin-top: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: var(--accent-color);
+  color: var(--title-color);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  width: 100%;
+}
+
+/* <li> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: calc(100% / 6);
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: var(--accent-color);
+}
+
+/*=== Backdrop + modal ===*/
+
+.modal-form {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+.modal-title {
+  display: block;
+  font-family: var(--main-font);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-field {
+  font-family: var(--main-font);
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+}
+
+.modal-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  padding-left: 10px;
+  margin-top: 4px;
+  transition: border-color 250ms var(--timing-function);
+}
+
+.modal-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.modal-submit-btn {
+  width: fit-content;
+  align-self: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  padding: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  font-weight: 700;
+  line-height: 1.875;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Table */
+.table {
+  max-width: 80%;
+  min-width:20%;
+  margin: 20px 0;
+  border: 5px solid #fff;
+  border-top: 5px solid #fff;
+  border-bottom: 3px solid #fff;
+  border-collapse: collapse;
+  outline: 3px solid var(--accent-color);
+  font-size: 15px;
+  background: #fff !important;
+}
+.table th {
+  font-weight: bold;
+  padding: 7px;
+  background: var(--accent-color);
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid var(--accent-color);
+}
+.table td {
+  padding: 7px;
+  border: none;
+  text-align: center;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  font-size: 15px;
+}
+
+.table thead {
+  text-transform: uppercase;
+}
+.table tbody tr:nth-child(even) {
+  background: #f8f8f8 !important;
+}
