@@ -3,6 +3,7 @@ package ua.GoIT_Dev2.ProjectManagementSystem.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serial;
 import java.util.Set;
 
 //@Table(name = "developers")
@@ -12,10 +13,11 @@ import java.util.Set;
 @NoArgsConstructor
 @EqualsAndHashCode(exclude = {"company", "projects", "skills"})
 @ToString (exclude = {"company", "projects", "skills"})
-@Entity(name = "developers")
+@Entity
+@Table(name = "developers")
 public class Developer implements BaseEntity<Long> {
 
-    //@Serial
+    @Serial
     private static final long serialVersionUID = -5406210571652062908L;
 
     @Id

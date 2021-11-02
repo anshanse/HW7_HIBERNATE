@@ -22,10 +22,10 @@ public class Company implements BaseEntity<Long> {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", length = 45)
     private String name;
 
-    @Column(name = "city")
+    @Column(name = "city", length = 10)
     private String city;
 
     @OneToMany(mappedBy="company", cascade = CascadeType.ALL)

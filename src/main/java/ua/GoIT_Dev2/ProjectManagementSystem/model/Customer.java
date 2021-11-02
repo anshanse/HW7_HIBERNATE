@@ -11,7 +11,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(exclude = {"projects"})
-@Entity(name = "customers")
+@Entity
+@Table(name = "customers")
 public class Customer implements BaseEntity<Long> {
 
     @Serial
@@ -24,6 +25,6 @@ public class Customer implements BaseEntity<Long> {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
     private Set<Project> projects;
 }

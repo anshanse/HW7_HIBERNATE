@@ -13,7 +13,8 @@ import java.util.Set;
 @NoArgsConstructor
 @EqualsAndHashCode (exclude = {"company", "customer", "developers"})
 @ToString (exclude = {"company", "customer", "developers"})
-@Entity(name = "projects")
+@Entity
+@Table(name = "projects")
 public class Project implements BaseEntity<Long> {
 
     @Serial
