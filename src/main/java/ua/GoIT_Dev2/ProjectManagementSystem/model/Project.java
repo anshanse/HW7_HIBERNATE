@@ -19,7 +19,9 @@ public class Project implements BaseEntity<Long> {
 
     @Serial
     private static final long serialVersionUID = -5862211916185553288L;
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 

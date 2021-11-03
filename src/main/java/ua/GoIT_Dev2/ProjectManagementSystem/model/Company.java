@@ -11,26 +11,27 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(exclude = {"projects", "developers"})
-@Entity(name = "companies")
+@Entity
+@Table(name = "companies")
 public class Company implements BaseEntity<Long> {
 
     @Serial
-    private static final long serialVersionUID = 8007115697480334892L;
+    private static final long serialVersionUID = 6196148398791897660L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name", length = 45)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "city", length = 10)
+    @Column(name = "city")
     private String city;
 
-    @OneToMany(mappedBy="company", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Project> projects;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Developer> developers;
 }

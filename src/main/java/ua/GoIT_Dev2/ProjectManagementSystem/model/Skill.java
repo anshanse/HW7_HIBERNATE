@@ -21,6 +21,7 @@ public class Skill implements BaseEntity<Long>{
     private static final long serialVersionUID = -5358471669094964579L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -30,6 +31,6 @@ public class Skill implements BaseEntity<Long>{
     @Column(name = "grade")
     private String grade;
 
-    @ManyToMany(mappedBy = "skills")
+    @ManyToMany(mappedBy = "skills", cascade = CascadeType.ALL)
     private Set<Developer> developers;
 }

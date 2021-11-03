@@ -21,6 +21,7 @@ public class Developer implements BaseEntity<Long> {
     private static final long serialVersionUID = -5406210571652062908L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -37,7 +38,7 @@ public class Developer implements BaseEntity<Long> {
     private String info;
 
     @Column(name = "salary")
-    private int salary;
+    private Long salary;
 
     @ManyToOne
     @JoinColumn(name = "company_id")
@@ -46,7 +47,7 @@ public class Developer implements BaseEntity<Long> {
     @ManyToMany(mappedBy = "developers")
     private Set<Project> projects;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "developer_skill",
             joinColumns = {@JoinColumn (name = "developer_id")},

@@ -19,12 +19,13 @@ public class Customer implements BaseEntity<Long> {
     private static final long serialVersionUID = 5184860151334342492L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Project> projects;
 }

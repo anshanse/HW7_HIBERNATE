@@ -90,7 +90,7 @@ public class DeveloperServlet extends HttpServlet {
                         .name(req.getParameter("name"))
                         .age(Integer.parseInt(req.getParameter("age")))
                         .sex(req.getParameter("sex"))
-                        .salary(Integer.valueOf(req.getParameter("salary")))
+                        .salary(Long.valueOf(req.getParameter("salary")))
                         .info(req.getParameter("info"))
                         .build();
                 req.setAttribute("entity", service.save(className, newEntity));
@@ -111,7 +111,7 @@ public class DeveloperServlet extends HttpServlet {
             entity.setName(req.getParameter("entityName"));
             entity.setAge(Integer.valueOf(req.getParameter("age")));
             entity.setSex(req.getParameter("sex"));
-            entity.setSalary(Integer.valueOf(req.getParameter("salary")));
+            entity.setSalary(Long.valueOf(req.getParameter("salary")));
             entity.setInfo(req.getParameter("info"));
             service.save(className, entity);
             req.setAttribute("message", "Data updated");
