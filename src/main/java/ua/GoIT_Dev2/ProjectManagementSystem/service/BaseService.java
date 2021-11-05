@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import ua.GoIT_Dev2.ProjectManagementSystem.model.BaseEntity;
 import ua.GoIT_Dev2.ProjectManagementSystem.repository.RepositoryFactory;
+import ua.GoIT_Dev2.ProjectManagementSystem.util.PreparingDB;
 import ua.GoIT_Dev2.ProjectManagementSystem.util.ReadData;
 
 import javax.persistence.Column;
@@ -14,6 +15,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class BaseService<E extends BaseEntity<ID>, ID> {
+
+    static {
+        new PreparingDB().filling();
+    }
 
     private final ReadData readData = new ReadData();
 

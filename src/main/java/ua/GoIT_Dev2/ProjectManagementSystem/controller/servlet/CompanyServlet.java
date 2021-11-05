@@ -103,7 +103,7 @@ public class CompanyServlet extends HttpServlet {
         String pathInfo = req.getPathInfo();
         req.setCharacterEncoding("UTF-8");
         if ("/update".equals(pathInfo)){
-            Company entity = (Company) service.read(className, req.getParameter("entityId"));
+            Company entity = (Company) service.read(className, Long.valueOf(req.getParameter("entityId")));
             entity.setName(req.getParameter("entityName"));
             entity.setCity(req.getParameter("entityCity"));
             service.save(Company.class, entity);

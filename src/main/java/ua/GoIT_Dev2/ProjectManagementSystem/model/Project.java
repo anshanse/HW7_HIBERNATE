@@ -34,11 +34,11 @@ public class Project implements BaseEntity<Long> {
     @Column(name = "start_date")
     private Date startDate;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "company_id")
     private Company company;
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 

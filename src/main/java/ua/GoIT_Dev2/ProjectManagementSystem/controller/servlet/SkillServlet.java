@@ -108,7 +108,7 @@ public class SkillServlet extends HttpServlet {
         String pathInfo = req.getPathInfo();
         req.setCharacterEncoding("UTF-8");
         if ("/update".equals(pathInfo)){
-            Skill entity = (Skill) service.read(className, req.getParameter("entityId"));
+            Skill entity = (Skill) service.read(className, Long.valueOf(req.getParameter("entityId")));
             entity.setName(req.getParameter("entityName"));
             entity.setGrade(req.getParameter("grade"));
             service.save(className, entity);

@@ -12,7 +12,7 @@ public class RepositoryFactory {
     public synchronized static <E extends BaseEntity<ID>, R extends BaseRepository<E, ID>, ID> BaseRepository<E, ID> of(Class<E> modelClass) {
         final String modelName = modelClass.getName();
         if (!REPOSITORIES.containsKey(modelName)) {
-            REPOSITORIES.put(modelName, new BaseRepositoryImpl<E, ID>(modelClass));
+            REPOSITORIES.put(modelName, new HibernateRepositoryImpl<E, ID>(modelClass));
         }
         return REPOSITORIES.get(modelName);
     }

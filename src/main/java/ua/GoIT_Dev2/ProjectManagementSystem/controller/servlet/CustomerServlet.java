@@ -103,7 +103,7 @@ public class CustomerServlet extends HttpServlet {
         String pathInfo = req.getPathInfo();
         req.setCharacterEncoding("UTF-8");
         if ("/update".equals(pathInfo)){
-            Customer entity = (Customer) service.read(className, req.getParameter("entityId"));
+            Customer entity = (Customer) service.read(className, Long.valueOf(req.getParameter("entityId")));
             entity.setName(req.getParameter("entityName"));
             service.save(className, entity);
             req.setAttribute("message", "Data updated");

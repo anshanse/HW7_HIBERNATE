@@ -107,7 +107,7 @@ public class DeveloperServlet extends HttpServlet {
         String pathInfo = req.getPathInfo();
         req.setCharacterEncoding("UTF-8");
         if ("/update".equals(pathInfo)){
-            Developer entity = (Developer) service.read(className, req.getParameter("entityId"));
+            Developer entity = (Developer) service.read(className, Long.valueOf(req.getParameter("entityId")));
             entity.setName(req.getParameter("entityName"));
             entity.setAge(Integer.valueOf(req.getParameter("age")));
             entity.setSex(req.getParameter("sex"));

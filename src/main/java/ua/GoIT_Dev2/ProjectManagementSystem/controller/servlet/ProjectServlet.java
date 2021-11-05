@@ -112,7 +112,7 @@ public class ProjectServlet extends HttpServlet {
         String pathInfo = req.getPathInfo();
         req.setCharacterEncoding("UTF-8");
         if ("/update".equals(pathInfo)){
-            Project entity = (Project) service.read(className, req.getParameter("entityId"));
+            Project entity = (Project) service.read(className, Long.valueOf(req.getParameter("entityId")));
             entity.setName(req.getParameter("entityName"));
             entity.setCost(Integer.valueOf(req.getParameter("cost")));
             entity.setStartDate(new SimpleDateFormat("yyy-MM-DD").parse(req.getParameter("startDate")));

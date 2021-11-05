@@ -30,6 +30,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>City</th>
+			
           </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@
             <td>${company.id}</td>
             <td>${company.name}</td>
             <td>${company.city}</td>
+			
           </tr>
         </tbody>
       </table>
