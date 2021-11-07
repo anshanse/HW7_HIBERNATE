@@ -1,6 +1,8 @@
 package ua.GoIT_Dev2.ProjectManagementSystem.model;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serial;
@@ -34,15 +36,18 @@ public class Project implements BaseEntity<Long> {
     @Column(name = "start_date")
     private Date startDate;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "company_id")
     private Company company;
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne (cascade = {CascadeType.PERSIST})
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinTable(
             name = "project_developer",
             joinColumns = {@JoinColumn(name = "project_id")},

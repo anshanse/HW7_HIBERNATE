@@ -98,7 +98,7 @@ public class PreparingDB {
         project2.setDevelopers(developers2);
         project3.setDevelopers(developers1);
 
-        session.save(company1);
+        session.persist(company1);
         session.save(company2);
         session.save(customer3);
 

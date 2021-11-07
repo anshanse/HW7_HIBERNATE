@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serial;
@@ -31,6 +33,7 @@ public class Skill implements BaseEntity<Long>{
     @Column(name = "grade")
     private String grade;
 
-    @ManyToMany(mappedBy = "skills", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "skills", cascade = CascadeType.PERSIST)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Developer> developers;
 }

@@ -1,6 +1,8 @@
 package ua.GoIT_Dev2.ProjectManagementSystem.model;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serial;
@@ -29,9 +31,11 @@ public class Company implements BaseEntity<Long> {
     @Column(name = "city")
     private String city;
 
-    @OneToMany(mappedBy="company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="company", cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Project> projects;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "company", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Developer> developers;
 }
